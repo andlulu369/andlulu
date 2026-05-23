@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>andlulu | アクセスバーズ® セッション・認定講座</title>
+<meta name="description" content="andlulu｜頭を軽くして、人生をもっと自由に。アクセスバーズ®セッション（初回¥5,000）と資格取得認定1日講座（¥52,000）を提供しています。">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;--gold-light:#E8D5A3;--gold-pale:#FAF5E8;
+  --sky:#7BB8D4;--sky-light:#B8D9EA;--sky-pale:#EAF4F9;
+  --white:#FFFFFF;--off-white:#FAFAF8;
+  --text-dark:#2C2A24;--text-mid:#5A5650;--text-light:#8A8680;
+}
+body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:var(--text-dark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--gold-light);padding:0 1.5rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);letter-spacing:0.05em;font-style:italic;cursor:pointer}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.nav-links a{font-size:0.75rem;color:var(--text-mid);text-decoration:none;letter-spacing:0.06em;transition:color 0.2s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold)}
+.page{display:none;min-height:100vh;padding-top:60px}
+.page.active{display:block}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title-en{font-family:'Cormorant Garamond',serif;font-size:0.9rem;color:var(--sky);letter-spacing:0.2em;font-style:italic;display:block;margin-bottom:0.5rem}
+.section-title-jp{font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--text-dark);letter-spacing:0.15em}
+.section-title-jp::before,.section-title-jp::after{content:'✦';color:var(--gold);margin:0 1rem;font-size:0.7rem}
+.gold-divider{text-align:center;padding:1rem 0;color:var(--gold-light);letter-spacing:0.5em;font-size:0.6rem}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),#E8C86A);color:#fff;padding:0.85rem 1.8rem;border-radius:50px;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;border:none;box-shadow:0 4px 20px rgba(201,168,76,0.4);transition:all 0.2s;font-family:'Shippori Mincho',serif}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px rgba(201,168,76,0.5)}
+.btn-outline{display:inline-block;background:transparent;color:var(--sky);padding:0.85rem 1.8rem;border-radius:50px;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;border:1.5px solid var(--sky);transition:all 0.2s;font-family:'Shippori Mincho',serif}
+.btn-outline:hover{background:var(--sky-pale)}
+
+/* TOP */
+.hero{position:relative;min-height:88vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--sky-pale) 0%,#fff 50%,var(--gold-pale) 100%);overflow:hidden}
+.hero-deco{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(160deg,var(--sky-light) 0%,var(--sky-pale) 60%,transparent 100%);clip-path:polygon(20% 0,100% 0,100% 100%,0 100%)}
+.hero-stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;color:var(--gold);opacity:0.4;animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(0.8)}50%{opacity:0.6;transform:scale(1.1)}}
+.hero-content{position:relative;z-index:2;max-width:960px;margin:0 auto;padding:3rem 2rem;width:100%}
+.hero-en{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--sky);letter-spacing:0.15em;margin-bottom:0.5rem;font-style:italic}
+.hero-catch{font-family:'Shippori Mincho',serif;font-size:1.05rem;color:var(--text-mid);letter-spacing:0.2em;margin-bottom:1rem}
+.hero-title{font-family:'Shippori Mincho',serif;font-size:3.2rem;font-weight:600;color:var(--sky);letter-spacing:0.15em;margin-bottom:0.5rem;line-height:1.2}
+.hero-title-r{color:var(--gold);font-size:1.8rem;vertical-align:super}
+.hero-sub{font-family:'Shippori Mincho',serif;font-size:0.95rem;color:var(--text-mid);letter-spacing:0.15em;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gold-light)}
+.hero-desc{font-size:0.88rem;line-height:2;color:var(--text-mid);margin-bottom:1.8rem;max-width:380px}
+.hero-targets{margin-bottom:2rem}
+.hero-target{font-family:'Shippori Mincho',serif;font-size:1.1rem;color:var(--sky);font-weight:600;letter-spacing:0.1em;margin-bottom:0.4rem;padding-left:1rem;border-left:3px solid var(--gold-light)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-circle{position:absolute;top:3rem;right:2rem;width:130px;height:130px;border:2px solid var(--gold-light);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(255,255,255,0.92);z-index:3;padding:1rem}
+.hero-circle-text{font-family:'Shippori Mincho',serif;font-size:0.72rem;color:var(--text-mid);line-height:1.7;letter-spacing:0.08em}
+
+.benefits{background:var(--off-white);padding:5rem 2rem}
+.benefits-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem}
+.benefit-item{text-align:center;padding:1.5rem 0.5rem}
+.benefit-circle{width:88px;height:88px;border-radius:50%;border:1.5px solid var(--sky-light);background:#fff;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.8rem;transition:transform 0.2s,border-color 0.2s}
+.benefit-item:hover .benefit-circle{transform:translateY(-4px);border-color:var(--sky)}
+.benefit-text{font-family:'Shippori Mincho',serif;font-size:0.78rem;color:var(--text-mid);line-height:1.8;letter-spacing:0.06em}
+
+.trial{background:linear-gradient(135deg,var(--sky-pale) 0%,var(--gold-pale) 100%);padding:5rem 2rem}
+.trial-inner{max-width:900px;margin:0 auto}
+.trial-label{display:inline-block;font-family:'Shippori Mincho',serif;font-size:0.82rem;color:var(--gold);letter-spacing:0.15em;border:1px solid var(--gold);padding:0.3rem 1rem;border-radius:4px;margin-bottom:1rem}
+.trial-title{font-family:'Shippori Mincho',serif;font-size:2.3rem;color:var(--text-dark);letter-spacing:0.1em;margin-bottom:0.5rem}
+.trial-title strong{color:var(--gold)}
+.trial-note{font-size:0.85rem;color:var(--text-mid);margin-bottom:2rem;line-height:1.8}
+.trial-card{background:#fff;border-radius:16px;border:1px solid var(--gold-light);padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
+.trial-table{width:100%;border-collapse:collapse}
+.trial-table tr{border-bottom:1px solid var(--sky-pale)}
+.trial-table td{padding:0.8rem 0;font-size:0.85rem}
+.trial-table td:first-child{width:80px;background:var(--sky-pale);padding:0.5rem 0.8rem;border-radius:6px;font-family:'Shippori Mincho',serif;color:var(--sky);font-size:0.78rem;text-align:center;white-space:nowrap}
+.trial-table td:last-child{padding-left:1rem;color:var(--text-mid);line-height:1.7}
+.price-badge{text-align:center;background:linear-gradient(135deg,var(--sky),var(--sky-light));border-radius:50%;width:120px;height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.price-label{font-size:0.62rem;letter-spacing:0.06em}
+.price-num{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;line-height:1.1}
+.price-unit{font-size:0.62rem}
+
+.for-who{padding:5rem 2rem;background:#fff}
+.for-who-inner{max-width:700px;margin:0 auto}
+.for-who-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.for-who-item{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;background:var(--sky-pale);border-radius:10px;border-left:3px solid var(--sky)}
+.for-who-check{color:var(--sky);font-size:1.1rem;flex-shrink:0;margin-top:0.1rem}
+.for-who-text{font-size:0.83rem;color:var(--text-mid);line-height:1.7}
+
+/* ABOUT */
+.about-hero{background:linear-gradient(180deg,var(--sky-pale) 0%,#fff 100%);padding:5rem 2rem;text-align:center}
+.about-desc{max-width:600px;margin:0 auto;font-size:0.9rem;line-height:2.3;color:var(--text-mid)}
+.about-stats{background:var(--gold-pale);padding:3rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);font-weight:300}
+.stat-label{font-size:0.78rem;color:var(--text-mid);letter-spacing:0.1em;margin-top:0.3rem}
+.about-flow{padding:5rem 2rem;background:#fff}
+.flow-inner{max-width:700px;margin:0 auto}
+.flow-steps{margin-top:2rem}
+.flow-step{display:flex;gap:1.5rem;margin-bottom:2rem;align-items:flex-start}
+.flow-num{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--sky-light));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;flex-shrink:0}
+.flow-content h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.4rem;letter-spacing:0.08em}
+.flow-content p{font-size:0.84rem;color:var(--text-mid);line-height:1.8}
+
+/* MENU */
+.menu-hero{background:var(--sky-pale);padding:4rem 2rem;text-align:center}
+.menu-grid{max-width:960px;margin:3rem auto;padding:0 2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.menu-card{background:#fff;border:1px solid var(--gold-light);border-radius:16px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.menu-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(201,168,76,0.15)}
+.menu-card-header{background:linear-gradient(135deg,var(--sky-pale),var(--gold-pale));padding:2rem;text-align:center;border-bottom:1px solid var(--gold-light)}
+.menu-card-icon{font-size:2.3rem;margin-bottom:0.8rem}
+.menu-card-name{font-family:'Shippori Mincho',serif;font-size:1.05rem;color:var(--text-dark);letter-spacing:0.1em}
+.menu-card-sub{font-size:0.72rem;color:var(--text-light);margin-top:0.3rem}
+.menu-card-body{padding:1.5rem}
+.menu-price{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:300;margin-bottom:0.5rem}
+.menu-price span{font-size:0.82rem;color:var(--text-light)}
+.menu-detail{font-size:0.82rem;color:var(--text-mid);line-height:1.9}
+.menu-badge{display:inline-block;background:var(--sky-pale);color:var(--sky);font-size:0.7rem;padding:0.2rem 0.7rem;border-radius:20px;margin-bottom:0.8rem}
+.menu-badge-gold{background:var(--gold-pale);color:var(--gold)}
+
+/* LESSON */
+.lesson-hero{background:linear-gradient(135deg,var(--gold-pale) 0%,var(--sky-pale) 100%);padding:5rem 2rem;text-align:center}
+.lesson-hero-badge{display:inline-block;background:linear-gradient(135deg,var(--gold),#E8C86A);color:#fff;font-family:'Shippori Mincho',serif;font-size:0.8rem;letter-spacing:0.12em;padding:0.4rem 1.4rem;border-radius:20px;margin-bottom:1.2rem}
+.lesson-lead{font-family:'Shippori Mincho',serif;font-size:1.7rem;color:var(--text-dark);letter-spacing:0.12em;margin-bottom:0.8rem;line-height:1.5}
+.lesson-lead em{color:var(--sky);font-style:normal}
+.lesson-sub{font-size:0.88rem;color:var(--text-mid);line-height:2;max-width:540px;margin:0 auto}
+.lesson-what{padding:4rem 2rem;background:#fff}
+.lesson-what-inner{max-width:800px;margin:0 auto}
+.lesson-what-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.lesson-what-card{padding:1.8rem;background:var(--off-white);border-radius:12px;border-left:3px solid var(--gold)}
+.lesson-what-card h3{font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.8rem;letter-spacing:0.1em}
+.lesson-what-card p{font-size:0.83rem;color:var(--text-mid);line-height:1.9}
+.lesson-detail{padding:4rem 2rem;background:linear-gradient(135deg,var(--sky-pale),#fff)}
+.lesson-detail-inner{max-width:800px;margin:0 auto}
+.lesson-info-card{background:#fff;border-radius:16px;border:1px solid var(--gold-light);overflow:hidden;margin-top:2rem}
+.lesson-info-header{background:linear-gradient(135deg,var(--sky),#9ACFDE);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.lesson-info-name{font-family:'Shippori Mincho',serif;font-size:1.2rem;color:#fff;letter-spacing:0.1em}
+.lesson-info-price-wrap{text-align:right}
+.lesson-price-main{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;font-weight:300;line-height:1}
+.lesson-price-sub{font-size:0.7rem;color:rgba(255,255,255,0.85);margin-top:0.2rem}
+.lesson-info-body{padding:2rem}
+.lesson-table{width:100%;border-collapse:collapse}
+.lesson-table tr{border-bottom:1px solid var(--sky-pale)}
+.lesson-table td{padding:0.9rem 0;font-size:0.84rem;vertical-align:top}
+.lesson-table td:first-child{width:110px;color:var(--sky);font-family:'Shippori Mincho',serif;letter-spacing:0.08em;font-size:0.8rem}
+.lesson-table td:last-child{color:var(--text-mid);line-height:1.8}
+.lesson-for{padding:4rem 2rem;background:#fff}
+.lesson-for-inner{max-width:800px;margin:0 auto}
+.lesson-for-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.lesson-for-item{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;background:var(--gold-pale);border-radius:10px;border-left:3px solid var(--gold)}
+.lesson-for-icon{font-size:1rem;color:var(--gold);flex-shrink:0;margin-top:0.15rem}
+.lesson-for-text{font-size:0.83rem;color:var(--text-mid);line-height:1.7}
+.lesson-flow{padding:4rem 2rem;background:var(--sky-pale)}
+.lesson-flow-inner{max-width:700px;margin:0 auto}
+.lesson-timeline{margin-top:2rem;position:relative;padding-left:2rem;border-left:2px solid var(--sky-light)}
+.lesson-time-item{position:relative;margin-bottom:2rem;padding-left:1.2rem}
+.lesson-time-item::before{content:'';position:absolute;left:-2.4rem;top:0.3rem;width:12px;height:12px;border-radius:50%;background:var(--sky);border:2px solid #fff}
+.lesson-time-tag{display:inline-block;background:var(--sky);color:#fff;font-size:0.7rem;padding:0.15rem 0.6rem;border-radius:10px;margin-bottom:0.4rem;letter-spacing:0.08em}
+.lesson-time-title{font-family:'Shippori Mincho',serif;font-size:0.95rem;color:var(--text-dark);margin-bottom:0.3rem}
+.lesson-time-desc{font-size:0.82rem;color:var(--text-mid);line-height:1.7}
+.lesson-cta{padding:4rem 2rem;background:linear-gradient(135deg,var(--gold-pale),var(--sky-pale));text-align:center}
+.lesson-cta p{font-family:'Shippori Mincho',serif;font-size:1.1rem;color:var(--text-dark);letter-spacing:0.1em;margin-bottom:1.5rem}
+.lesson-cta-note{font-size:0.82rem;color:var(--text-light);margin-top:1rem}
+
+/* CONTACT */
+.contact-hero{background:linear-gradient(135deg,var(--gold-pale),var(--sky-pale));padding:4rem 2rem;text-align:center}
+.contact-body{max-width:700px;margin:0 auto;padding:3rem 2rem}
+.contact-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.contact-method{text-align:center;padding:1.8rem 1rem;border:1px solid var(--gold-light);border-radius:12px;background:#fff;transition:transform 0.2s,box-shadow 0.2s}
+.contact-method:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(201,168,76,0.12)}
+.contact-method-icon{font-size:1.8rem;margin-bottom:0.7rem}
+.contact-method-name{font-family:'Shippori Mincho',serif;font-size:0.88rem;color:var(--text-dark);margin-bottom:0.4rem}
+.contact-method-val{font-size:0.76rem;color:var(--sky);font-weight:500;letter-spacing:0.04em}
+.contact-note{font-size:0.8rem;color:var(--text-light);text-align:center;margin-bottom:2rem;line-height:1.8}
+.contact-form{background:#fff;border:1px solid var(--gold-light);border-radius:16px;padding:2.5rem}
+.form-group{margin-bottom:1.4rem}
+.form-label{display:block;font-size:0.8rem;color:var(--text-mid);letter-spacing:0.1em;margin-bottom:0.45rem}
+.form-input{width:100%;padding:0.72rem 1rem;border:1px solid var(--gold-light);border-radius:8px;font-size:0.88rem;font-family:'Noto Sans JP',sans-serif;color:var(--text-dark);background:#fff;transition:border-color 0.2s;outline:none}
+.form-input:focus{border-color:var(--sky)}
+textarea.form-input{height:110px;resize:vertical}
+.form-submit{width:100%;background:linear-gradient(135deg,var(--gold),#E8C86A);color:#fff;border:none;padding:1rem;border-radius:50px;font-size:0.92rem;letter-spacing:0.15em;cursor:pointer;font-family:'Shippori Mincho',serif;transition:all 0.2s;box-shadow:0 4px 20px rgba(201,168,76,0.4);margin-top:0.5rem}
+.form-submit:hover{transform:translateY(-2px)}
+
+footer{background:var(--text-dark);color:rgba(255,255,255,0.65);text-align:center;padding:2.5rem;font-size:0.78rem;letter-spacing:0.1em}
+.float-cta{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50;background:linear-gradient(135deg,var(--gold),#E8C86A);color:#fff;border:none;border-radius:50px;padding:0.8rem 1.4rem;font-family:'Shippori Mincho',serif;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,0.5);transition:all 0.2s}
+.float-cta:hover{transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('top')">andlulu</div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('top')">トップ</a></li>
+      <li><a href="#" onclick="showPage('about')">アクセスバーズとは</a></li>
+      <li><a href="#" onclick="showPage('menu')">セッション</a></li>
+      <li><a href="#" onclick="showPage('lesson')" style="color:var(--gold)">✦ 認定講座</a></li>
+      <li><a href="#" onclick="showPage('contact')">ご予約・お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- TOP -->
+<div id="page-top" class="page active">
+  <section class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-stars" id="stars"></div>
+    <div class="hero-content">
+      <p class="hero-en">Access Bars® — andlulu</p>
+      <p class="hero-catch">頭を軽くして、人生をもっと自由に。</p>
+      <h1 class="hero-title">アクセスバーズ<span class="hero-title-r">®</span></h1>
+      <p class="hero-sub">〜思考のノイズを手放し、あなた本来の輝きを取り戻す〜</p>
+      <p class="hero-desc">アクセスバーズ®は、頭部の32か所のポイントに軽く触れることで、思考や感情のストレスを解放し、心と体を深くリラックスさせるセッションです。</p>
+      <div class="hero-targets">
+        <p class="hero-target">考えすぎてしまう方に</p>
+        <p class="hero-target">気持ちを軽くしたい方に</p>
+        <p class="hero-target">自分らしく生きたい方に</p>
+      </div>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('contact')">✦ 無料体験会のご予約</button>
+        <button class="btn-outline" onclick="showPage('lesson')">資格取得講座を見る</button>
+      </div>
+    </div>
+    <div class="hero-circle">
+      <p class="hero-circle-text">脳の<br>デトックスで<br>人生が変わる<br>体験を</p>
+    </div>
+  </section>
+
+  <div class="gold-divider">✦ ✦ ✦</div>
+
+  <section class="benefits">
+    <div class="section-title">
+      <span class="section-title-en">What you can expect</span>
+      <div class="section-title-jp">アクセスバーズで期待できること</div>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-item"><div class="benefit-circle">🧠</div><p class="benefit-text">思考の<br>クリアリング</p></div>
+      <div class="benefit-item"><div class="benefit-circle">💙</div><p class="benefit-text">ストレス・不安の<br>軽減</p></div>
+      <div class="benefit-item"><div class="benefit-circle">🌙</div><p class="benefit-text">深いリラクゼーション<br>と質の良い睡眠</p></div>
+      <div class="benefit-item"><div class="benefit-circle">✨</div><p class="benefit-text">直感力・創造性の<br>向上</p></div>
+      <div class="benefit-item"><div class="benefit-circle">☀️</div><p class="benefit-text">自分らしさと<br>可能性の開花</p></div>
+    </div>
+  </section>
+
+  <div class="gold-divider">✦ ✦ ✦</div>
+
+  <section class="trial">
+    <div class="trial-inner">
+      <span class="trial-label">まずは気軽に体験を！</span>
+      <h2 class="trial-title"><strong>初回体験セッション</strong></h2>
+      <p class="trial-note">初めての方も安心してご参加いただけます。リラックスした服装でお越しください。</p>
+      <div class="trial-card">
+        <div>
+          <table class="trial-table">
+            <tr><td>日時</td><td>随時受付中（ご予約の上お越しください）</td></tr>
+            <tr><td>場所</td><td>お申し込み時にお伝えします</td></tr>
+            <tr><td>定員</td><td>要予約・先着順</td></tr>
+            <tr><td>内容</td><td>アクセスバーズ体験セッション（約90分）<br><span style="font-size:0.76rem;color:var(--text-light)">※カウンセリング・ご質問タイムを含みます</span></td></tr>
+          </table>
+          <button class="btn-primary" style="margin-top:1.5rem" onclick="showPage('contact')">ご予約受付中！ ▶</button>
+        </div>
+        <div class="price-badge">
+          <span class="price-label">初回特別価格</span>
+          <span class="price-num">¥5,000</span>
+          <span class="price-unit">（90分）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:4rem 2rem;background:#fff">
+    <div style="max-width:900px;margin:0 auto;background:linear-gradient(135deg,var(--gold-pale),var(--sky-pale));border-radius:20px;border:1px solid var(--gold-light);padding:2.5rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center">
+      <div>
+        <p style="font-size:0.75rem;color:var(--gold);letter-spacing:0.15em;font-family:'Shippori Mincho',serif;margin-bottom:0.5rem">✦ Practitioner Course</p>
+        <h3 style="font-family:'Shippori Mincho',serif;font-size:1.4rem;color:var(--text-dark);letter-spacing:0.1em;margin-bottom:0.8rem">アクセスバーズ<br>資格取得認定講座</h3>
+        <p style="font-size:0.84rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.2rem">1日講座で、あなたもプラクティショナーに。<br>大切な人を施術できるスキルを身につけましょう。</p>
+        <button class="btn-primary" onclick="showPage('lesson')">講座の詳細を見る ▶</button>
+      </div>
+      <div style="text-align:center;min-width:120px">
+        <div style="font-size:2.5rem;margin-bottom:0.5rem">🎓</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);font-weight:300">¥52,000</div>
+        <div style="font-size:0.7rem;color:var(--text-light)">（1日講座）</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="for-who">
+    <div class="for-who-inner">
+      <div class="section-title">
+        <span class="section-title-en">For you</span>
+        <div class="section-title-jp">こんな方におすすめです</div>
+      </div>
+      <div class="for-who-list">
+        <div class="for-who-item"><span class="for-who-check">✓</span><p class="for-who-text">頭の中がいつも忙しく、考えが止まらない</p></div>
+        <div class="for-who-item"><span class="for-who-check">✓</span><p class="for-who-text">人間関係や仕事のストレスを手放したい</p></div>
+        <div class="for-who-item"><span class="for-who-check">✓</span><p class="for-who-text">もっと自分らしく、軽やかに生きたい</p></div>
+        <div class="for-who-item"><span class="for-who-check">✓</span><p class="for-who-text">新しい可能性を開きたい</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <section class="about-hero">
+    <div class="section-title" style="margin-bottom:1.5rem">
+      <span class="section-title-en">About</span>
+      <div class="section-title-jp">アクセスバーズとは？</div>
+    </div>
+    <p class="about-desc">世界170か国以上で実践されている脳のデトックスの手法です。思考・感情・信念などの不要なエネルギーを解放し、人生により多くの可能性と選択肢をもたらします。<br><br>頭部にある32か所のポイント（バーズ）に静かに触れることで、長年積み重なってきた思い込みや制限がゆっくりと解放されていきます。</p>
+  </section>
+  <section class="about-stats">
+    <div class="stat-item"><div class="stat-num">170<span style="font-size:1.5rem">カ国+</span></div><div class="stat-label">世界での実践国数</div></div>
+    <div class="stat-item"><div class="stat-num">32</div><div class="stat-label">頭部のポイント数</div></div>
+    <div class="stat-item"><div class="stat-num">90<span style="font-size:1.5rem">分</span></div><div class="stat-label">標準セッション時間</div></div>
+  </section>
+  <section class="about-flow">
+    <div class="flow-inner">
+      <div class="section-title">
+        <span class="section-title-en">Session flow</span>
+        <div class="section-title-jp">セッションの流れ</div>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-num">1</div><div class="flow-content"><h3>カウンセリング（約15分）</h3><p>現在のお悩みやご希望をお聞きします。初めての方でも安心してご相談ください。</p></div></div>
+        <div class="flow-step"><div class="flow-num">2</div><div class="flow-content"><h3>アクセスバーズセッション（約60分）</h3><p>ベッドに横になり、リラックスした状態でセッションを行います。服を着たままでOKです。</p></div></div>
+        <div class="flow-step"><div class="flow-num">3</div><div class="flow-content"><h3>フィードバック・質問タイム（約15分）</h3><p>セッション後の感想をお聞きし、ご質問にお答えします。</p></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- MENU -->
+<div id="page-menu" class="page">
+  <section class="menu-hero">
+    <div class="section-title" style="margin-bottom:0">
+      <span class="section-title-en">Session Menu & Price</span>
+      <div class="section-title-jp">セッションメニュー・料金</div>
+    </div>
+  </section>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-header"><div class="menu-card-icon">🌟</div><div class="menu-card-name">初回体験セッション</div><div class="menu-card-sub">First Trial Session</div></div>
+      <div class="menu-card-body">
+        <div class="menu-badge menu-badge-gold">初回限定・要予約</div>
+        <div class="menu-price">¥5,000<span>（税込）</span></div>
+        <p class="menu-detail">約90分のアクセスバーズセッション。カウンセリング・ご質問タイムを含みます。初めての方もお気軽にどうぞ。場所はお申し込み後にご案内します。</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-header"><div class="menu-card-icon">✨</div><div class="menu-card-name">通常セッション</div><div class="menu-card-sub">Regular Session</div></div>
+      <div class="menu-card-body">
+        <div class="menu-badge">90分</div>
+        <div class="menu-price">¥10,000<span>（税込）</span></div>
+        <p class="menu-detail">思考や感情のストレスをしっかり解放するスタンダードセッション。定期的な受講で、より深い変化を実感いただけます。</p>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:960px;margin:0 auto 3rem;padding:0 2rem">
+    <div style="background:linear-gradient(135deg,var(--gold-pale),var(--sky-pale));border-radius:12px;padding:1.8rem 2rem;border:1px solid var(--gold-light);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+      <div>
+        <p style="font-family:'Shippori Mincho',serif;font-size:1rem;color:var(--text-dark);margin-bottom:0.4rem">施術できる資格を取得したい方へ</p>
+        <p style="font-size:0.82rem;color:var(--text-mid)">1日でプラクティショナー資格が取得できる認定講座を開催しています。</p>
+      </div>
+      <button class="btn-primary" onclick="showPage('lesson')">講座を見る ▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- LESSON -->
+<div id="page-lesson" class="page">
+  <section class="lesson-hero">
+    <div class="lesson-hero-badge">✦ Certified Practitioner Course</div>
+    <h1 class="lesson-lead">1日で取得できる<br><em>アクセスバーズ®</em><br>資格取得認定講座</h1>
+    <p class="lesson-sub" style="margin-top:1rem">大切な人を癒したい方、新しいスキルを身につけたい方、<br>ウェルネスの仕事をしたい方へ。<br>1日の講座でプラクティショナーとして活動できる資格が取得できます。</p>
+  </section>
+
+  <section class="lesson-what">
+    <div class="lesson-what-inner">
+      <div class="section-title">
+        <span class="section-title-en">What you will learn</span>
+        <div class="section-title-jp">この講座で学べること</div>
+      </div>
+      <div class="lesson-what-grid">
+        <div class="lesson-what-card"><h3>🖐 32か所のバーズの位置と触れ方</h3><p>頭部の32か所のポイントを正確に把握し、正しいタッチの方法を実践を通して習得します。</p></div>
+        <div class="lesson-what-card"><h3>🧠 アクセスバーズの理論・背景</h3><p>なぜこのセッションが効果的なのか、思考・感情・エネルギーの仕組みを理解します。</p></div>
+        <div class="lesson-what-card"><h3>🤝 相互施術の実践</h3><p>受講者同士で実際にセッションを行い、「やる側・受ける側」両方を体験します。</p></div>
+        <div class="lesson-what-card"><h3>📜 修了後のサポート</h3><p>修了後は国際認定プラクティショナーとして活動可能。活動に関する質問もサポートします。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-detail">
+    <div class="lesson-detail-inner">
+      <div class="section-title">
+        <span class="section-title-en">Course details</span>
+        <div class="section-title-jp">講座詳細・料金</div>
+      </div>
+      <div class="lesson-info-card">
+        <div class="lesson-info-header">
+          <div class="lesson-info-name">アクセスバーズ資格取得認定1日講座</div>
+          <div class="lesson-info-price-wrap">
+            <div class="lesson-price-main">¥52,000</div>
+            <div class="lesson-price-sub">再受講 ¥26,000（半額）</div>
+          </div>
+        </div>
+        <div class="lesson-info-body">
+          <table class="lesson-table">
+            <tr><td>受講時間</td><td>1日（約8時間／10:00〜18:00 目安）</td></tr>
+            <tr><td>場所</td><td>お申し込み後にご案内します</td></tr>
+            <tr><td>定員</td><td>少人数制（要予約・先着順）</td></tr>
+            <tr><td>料金</td><td>¥52,000（税込）<br><span style="color:var(--gold);font-size:0.82rem">再受講の方は半額 ¥26,000（税込）</span></td></tr>
+            <tr><td>含まれるもの</td><td>テキスト・修了証明書・講座中のセッション体験</td></tr>
+            <tr><td>取得資格</td><td>アクセスバーズ認定プラクティショナー資格<br><span style="font-size:0.78rem;color:var(--text-light)">（世界170か国以上で認められた国際資格）</span></td></tr>
+            <tr><td>持ち物</td><td>動きやすい服装・筆記用具</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-for">
+    <div class="lesson-for-inner">
+      <div class="section-title">
+        <span class="section-title-en">This course is for</span>
+        <div class="section-title-jp">こんな方におすすめ</div>
+      </div>
+      <div class="lesson-for-grid">
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">家族や大切な人をアクセスバーズで癒したい</p></div>
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">新しいスキルを身につけて仕事に活かしたい</p></div>
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">プラクティショナーとして独立・副業したい</p></div>
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">アクセスバーズのセッションが好きで深めたい</p></div>
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">ヒーリングや心身のウェルネスに関心がある</p></div>
+        <div class="lesson-for-item"><span class="lesson-for-icon">✦</span><p class="lesson-for-text">自分自身をもっと深く理解し、変化したい</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-flow">
+    <div class="lesson-flow-inner">
+      <div class="section-title">
+        <span class="section-title-en">Day schedule</span>
+        <div class="section-title-jp">1日の流れ（目安）</div>
+      </div>
+      <div class="lesson-timeline">
+        <div class="lesson-time-item"><div class="lesson-time-tag">10:00</div><div class="lesson-time-title">オリエンテーション・自己紹介</div><div class="lesson-time-desc">アクセスバーズの歴史・理論・エネルギーの仕組みについて学びます。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">11:00</div><div class="lesson-time-title">バーズの位置を覚える</div><div class="lesson-time-desc">頭部の32か所のポイントを図と実践で確認。ペアを組んでタッチを練習します。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">12:00</div><div class="lesson-time-title">昼休憩</div><div class="lesson-time-desc">各自昼食をお取りください。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">13:00</div><div class="lesson-time-title">相互施術の実践①</div><div class="lesson-time-desc">ペアになり、実際にフルセッションを行います（やる側）。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">15:00</div><div class="lesson-time-title">相互施術の実践②</div><div class="lesson-time-desc">交代して受ける側を体験。両方を経験することで施術の理解が深まります。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">17:00</div><div class="lesson-time-title">質疑応答・シェアタイム</div><div class="lesson-time-desc">気づきをシェアし、活動に向けた質問に答えます。</div></div>
+        <div class="lesson-time-item"><div class="lesson-time-tag">18:00</div><div class="lesson-time-title">修了証書のお渡し・終了</div><div class="lesson-time-desc">認定プラクティショナー資格証明書をお渡しします。</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-cta">
+    <p>受講のお申し込み・ご相談はこちらから</p>
+    <button class="btn-primary" onclick="showPage('contact')">✦ 講座のお申し込み・お問い合わせ</button>
+    <p class="lesson-cta-note">LINEやメールでのご相談も大歓迎です。お気軽にどうぞ♪</p>
+    <div style="margin-top:2rem;display:inline-block;background:#fff;border-radius:12px;padding:1rem 2rem;border:1px solid var(--gold-light)">
+      <p style="font-size:0.8rem;color:var(--text-mid);line-height:1.9">
+        <strong style="color:var(--gold)">再受講について</strong><br>
+        一度受講された方は <strong>¥26,000（半額）</strong> で再受講いただけます。<br>学びを深めたい方、復習したい方にもおすすめです。
+      </p>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div id="page-contact" class="page">
+  <section class="contact-hero">
+    <div class="section-title" style="margin-bottom:0">
+      <span class="section-title-en">Contact & Reservation</span>
+      <div class="section-title-jp">ご予約・お問い合わせ</div>
+    </div>
+  </section>
+  <div class="contact-body">
+    <p class="contact-note">お電話・LINE・メールにてお気軽にご連絡ください♪<br>セッションのご予約・講座のお申し込みどちらもこちらから。</p>
+    <div class="contact-methods">
+      <div class="contact-method">
+        <div class="contact-method-icon">💬</div>
+        <div class="contact-method-name">公式LINE</div>
+        <div class="contact-method-val">@518mrsbsを検索</div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">✉️</div>
+        <div class="contact-method-name">メール</div>
+        <div class="contact-method-val">andlulu369@gmail.com</div>
+      </div>
+      <div class="contact-method">
+        <div class="contact-method-icon">📞</div>
+        <div class="contact-method-name">お電話</div>
+        <div class="contact-method-val">お問い合わせください</div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <p style="font-family:'Shippori Mincho',serif;font-size:0.98rem;color:var(--text-dark);letter-spacing:0.1em;margin-bottom:1.5rem">お問い合わせフォーム</p>
+      <div class="form-group">
+        <label class="form-label">お名前 *</label>
+        <input type="text" class="form-input" placeholder="山田 花子">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス *</label>
+        <input type="email" class="form-input" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご希望のメニュー</label>
+        <select class="form-input">
+          <option value="">選択してください</option>
+          <option>初回体験セッション（¥5,000 / 90分）</option>
+          <option>通常セッション（¥10,000 / 90分）</option>
+          <option>資格取得認定1日講座（¥52,000）</option>
+          <option>資格取得認定1日講座・再受講（¥26,000）</option>
+          <option>その他・ご相談</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご希望の日程（第1・第2希望）</label>
+        <input type="text" class="form-input" placeholder="例：6月1日（土）午前 / 6月3日（月）午後">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メッセージ・ご質問</label>
+        <textarea class="form-input" placeholder="ご質問やご要望をお気軽にどうぞ"></textarea>
+      </div>
+      <button class="form-submit">送信する ▶</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(255,255,255,0.55);letter-spacing:0.15em;font-style:italic;margin-bottom:0.3rem">andlulu</p>
+  <p style="margin-bottom:0.3rem">Access Bars® セッション ＆ 認定講座</p>
+  <p style="font-size:0.74rem;color:rgba(255,255,255,0.38)">あなたの人生に、もっと"心地よさ"と"自由"を。お会いできるのを楽しみにしています。</p>
+  <p style="margin-top:0.8rem;font-size:0.68rem;color:rgba(255,255,255,0.28)">© 2026 andlulu. All rights reserved.</p>
+</footer>
+
+<button class="float-cta" onclick="showPage('contact')">✦ ご予約・お申し込み</button>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
+const starsEl=document.getElementById('stars');
+for(let i=0;i<14;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  s.textContent='✦';
+  s.style.left=Math.random()*100+'%';
+  s.style.top=Math.random()*100+'%';
+  s.style.animationDelay=Math.random()*4+'s';
+  s.style.fontSize=(0.5+Math.random()*0.8)+'rem';
+  starsEl.appendChild(s);
+}
+</script>
+</body>
+</html>
