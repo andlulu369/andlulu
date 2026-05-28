@@ -180,6 +180,70 @@ textarea.form-input{height:110px;resize:vertical}
 footer{background:var(--text-dark);color:rgba(255,255,255,0.65);text-align:center;padding:2.5rem;font-size:0.78rem;letter-spacing:0.1em}
 .float-cta{position:fixed;bottom:1.5rem;right:1.5rem;z-index:50;background:linear-gradient(135deg,var(--gold),#E8C86A);color:#fff;border:none;border-radius:50px;padding:0.8rem 1.4rem;font-family:'Shippori Mincho',serif;font-size:0.82rem;letter-spacing:0.1em;cursor:pointer;box-shadow:0 4px 20px rgba(201,168,76,0.5);transition:all 0.2s}
 .float-cta:hover{transform:translateY(-2px)}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 768px) {
+  /* ナビ */
+  .nav-inner { flex-direction: column; height: auto; padding: 0.5rem 0; gap: 0.3rem; }
+  .nav-logo img { height: 36px; }
+  .nav-links { gap: 0.6rem; justify-content: center; flex-wrap: wrap; padding-bottom: 0.4rem; }
+  .nav-links a { font-size: 0.72rem; }
+
+  /* ヒーロー */
+  .hero { min-height: auto; padding-bottom: 3rem; }
+  .hero-content { padding: 2rem 1.2rem; }
+  .hero-title { font-size: 2rem; letter-spacing: 0.08em; }
+  .hero-title-r { font-size: 1.2rem; }
+  .hero-catch { font-size: 0.9rem; }
+  .hero-sub { font-size: 0.82rem; }
+  .hero-desc { font-size: 0.85rem; max-width: 100%; }
+  .hero-target { font-size: 0.95rem; }
+  .hero-btns { flex-direction: column; }
+  .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 0.9rem 1rem; }
+
+  /* 脳のデトックス丸を非表示（スマホでは邪魔になるため） */
+  .hero-circle { display: none; }
+
+  /* アイコングリッド：2列に */
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .benefit-circle { width: 72px; height: 72px; font-size: 1.5rem; }
+
+  /* 体験会カード */
+  .trial-card { grid-template-columns: 1fr; }
+  .price-badge { margin: 1rem auto 0; }
+  .trial-title { font-size: 1.8rem; }
+
+  /* こんな方に */
+  .for-who-list { grid-template-columns: 1fr; }
+
+  /* 自己紹介 */
+  #page-top section > div[style*="grid-template-columns:auto"] {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  /* セッションメニュー */
+  .menu-grid { grid-template-columns: 1fr; }
+
+  /* 認定講座 */
+  .lesson-what-grid { grid-template-columns: 1fr; }
+  .lesson-for-grid { grid-template-columns: 1fr; }
+  .lesson-lead { font-size: 1.3rem; }
+  .lesson-info-header { flex-direction: column; gap: 0.8rem; }
+  .lesson-info-price-wrap { text-align: left; }
+
+  /* お問い合わせ */
+  .contact-methods { grid-template-columns: 1fr; }
+
+  /* セクションタイトル */
+  .section-title-jp { font-size: 1.1rem; letter-spacing: 0.08em; }
+
+  /* 活動エリアグリッド */
+  div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+  /* フローティングボタン */
+  .float-cta { bottom: 1rem; right: 0.8rem; font-size: 0.78rem; padding: 0.7rem 1.1rem; }
+}
 </style>
 </head>
 <body>
