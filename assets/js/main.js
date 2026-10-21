@@ -94,7 +94,7 @@
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  /* ---------- lens: レンズ越しに、別の見え方 ---------- */
+  /* ---------- lens: レンズを外すと、本来の姿が見える ---------- */
   var field = document.querySelector(".lens-field");
   if (field) {
     var unveil = document.querySelector("[data-lens-unveil]");
@@ -140,7 +140,7 @@
       unveil.addEventListener("click", function () {
         var on = field.classList.toggle("is-unveiled");
         unveil.setAttribute("aria-pressed", on ? "true" : "false");
-        unveil.textContent = on ? "レンズに戻す" : "ぜんぶレンズ越しに見る";
+        unveil.textContent = on ? "レンズを戻す" : "レンズを外す";
       });
     }
   }

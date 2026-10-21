@@ -368,36 +368,40 @@ h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; line-height: 
 .question-list li:nth-child(3) { transform: translateX(clamp(0px, -6vw, -80px)); }
 .questions-after { margin-top: clamp(56px, 8vw, 96px); color: var(--ink-soft); }
 
+/* ふだんの見え方＝色つきのレンズ越しの世界。
+   円の部分だけレンズが外れ、くっきりとした本来の姿が見える。 */
 .lens-field {
   position: relative; margin: clamp(56px, 8vw, 96px) auto 0; max-width: 960px;
   border-radius: var(--radius-l); padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 64px);
-  background: linear-gradient(140deg, rgba(233, 223, 210, .55), rgba(250, 248, 244, .4) 50%, rgba(201, 194, 188, .3));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .7);
+  background:
+    linear-gradient(115deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, .55) 42%, rgba(255, 255, 255, 0) 54%),
+    linear-gradient(140deg, rgba(230, 221, 245, .95), rgba(245, 223, 231, .9) 45%, rgba(225, 240, 250, .9));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .85), inset 0 0 60px rgba(201, 194, 188, .35);
   touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: none;
   --lx: 50%; --ly: 50%; --lr: clamp(78px, 13vw, 128px);
-  overflow: hidden;
+  overflow: hidden; isolation: isolate;
 }
 .lens-layer { display: grid; gap: clamp(18px, 3vw, 30px); }
-.lens-layer p { text-align: left;
-  margin: 0; font-family: var(--font-serif); font-size: clamp(20px, 3.4vw, 36px); letter-spacing: .14em; line-height: 1.5;
+.lens-layer p {
+  text-align: left; margin: 0; font-family: var(--font-serif);
+  font-size: clamp(20px, 3.4vw, 36px); letter-spacing: .14em; line-height: 1.5;
 }
-.lens-layer--plain p { color: rgba(100, 92, 86, .55); }
-.lens-layer--plain p:nth-child(even), .lens-layer--seen p:nth-child(even) { text-align: right; }
-.lens-layer--seen {
+.lens-layer p:nth-child(even) { text-align: right; }
+.lens-layer--through p { color: rgba(110, 96, 120, .6); filter: blur(1.4px); }
+.lens-layer--bare {
   position: absolute; inset: 0; padding: inherit;
-  background:
-    radial-gradient(60% 60% at var(--lx) var(--ly), rgba(230, 221, 245, .95), rgba(225, 240, 250, .9) 50%, rgba(221, 236, 228, .9));
+  background: var(--warm-white);
   clip-path: circle(var(--lr) at var(--lx) var(--ly));
   -webkit-clip-path: circle(var(--lr) at var(--lx) var(--ly));
 }
-.lens-layer--seen p { color: var(--ink); }
+.lens-layer--bare p { color: var(--ink); }
 .lens-ring {
+  /* レンズが外れた穴のふち */
   position: absolute; left: var(--lx); top: var(--ly); width: calc(var(--lr) * 2); height: calc(var(--lr) * 2);
   transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .95), inset 0 0 30px rgba(255, 255, 255, .8), 0 18px 40px -18px rgba(120, 105, 140, .45);
-  background: radial-gradient(circle at 30% 26%, rgba(255, 255, 255, .7), transparent 22%);
+  box-shadow: 0 0 0 1px rgba(169, 130, 74, .35), 0 0 0 6px rgba(255, 255, 255, .55), 0 0 36px 10px rgba(255, 255, 255, .6);
 }
-.lens-field.is-unveiled .lens-layer--seen { clip-path: circle(150% at var(--lx) var(--ly)); -webkit-clip-path: circle(150% at var(--lx) var(--ly)); transition: clip-path 1.4s var(--ease); }
+.lens-field.is-unveiled .lens-layer--bare { clip-path: circle(150% at var(--lx) var(--ly)); -webkit-clip-path: circle(150% at var(--lx) var(--ly)); transition: clip-path 1.4s var(--ease); }
 .lens-field.is-unveiled .lens-ring { opacity: 0; transition: opacity .6s; }
 .lens-field.is-unveiled { cursor: default; }
 .lens-controls { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 24px; color: var(--ink-soft); font-size: 14px; }
